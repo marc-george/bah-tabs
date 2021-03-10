@@ -1,0 +1,58 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`bah-tabs`
+Similar functionality to px-tabs, but with Brilliant Apps Hub styling.
+
+@demo demo/index.html 
+-->
+
+<dom-module id="bah-tabs">
+  <template>
+    <style>
+      /* inject{scss} */
+    </style>
+
+    <!-- Centered whole div -->
+    <div class="center u-pb u-pt">
+
+      <!-- Steps buttons -->
+      <template is="dom-repeat" items="{{steps}}">
+        <button 
+          id="button-[[item.number]]"
+          type="button"
+          name="{{item.number}}"
+          class$="{{_updateStepButtonState(item.number, selectedStepNumber)}}"
+          on-click="_selectStep">
+            {{item.number}}
+        </button>
+        <template is="dom-if" if="{{_isNotLastStep(index, steps)}}">
+          <span class="divider"></span>
+        </template>
+      </template>
+
+          <!-- Previous / next buttons -->
+      <div class="float-right">
+        <div class="force-right">
+        <button 
+          id="previousButton"
+          type="button"
+          class$="{{_updatePreviousButtonState(selectedStepNumber)}}"
+          on-click="_previousStep">
+          Previous
+        </button>
+
+        <button
+          id="nextButton"
+          type="button"
+          class$="{{_updateNextButtonState(selectedStepNumber, steps)}}"
+          on-click="_nextStep">
+          Next
+        </button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="js/bah-tabs.js" inline></script>
+</dom-module>

@@ -1,0 +1,31 @@
+{
+  "name": "bah-tabs",
+  "version": "1.0.0",
+  "description": "Similar functionality to px-tabs, but with Brilliant Apps Hub styling.",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "map-stream": "0.0.6",
+    "node-sass": "^4.5.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "express": "^4.15.2",
+    "istanbul": "^0.4.5",
+    "web-component-tester": "=4.3.1",
+    "web-component-tester-istanbul": "https://github.com/t2ym/web-component-tester-istanbul/tarball/0.10.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.build.ge.com:HealthcareBrilliantFactoryPredixTeam/bah-tabs.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>bah-tabs demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../bah-tabs.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container">
+      <h3>Basic bah-tabs demo</h3>
+      <demo-snippet>
+        <template is="dom-bind">
+          <bah-tabs 
+            steps='[{"number":1},{"number":2},{"number":3}]' 
+            selected-step-number="{{selectedStepNumber}}"
+            is-last-step="{{isLastStep}}"
+            is-first-step="{{isFirstStep}}"></bah-tabs>
+          <h4>selectedStepNumber:</h4>{{selectedStepNumber}}
+          <template is="dom-if" if="{{isFirstStep}}">
+            <h4>isFirstStep!</h4>
+          </template>
+          <template is="dom-if" if="{{isLastStep}}">
+            <h4>isLastStep!</h4>
+          </template>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

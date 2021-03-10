@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>bah-tabs test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../bah-tabs.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <bah-tabs
+          steps='[{"number":1},{"number":2},{"number":3}]'>
+        </bah-tabs>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('bah-tabs', function() {
+        var element;
+
+        setup(function() {
+          element = fixture('basic');
+        });        
+
+        //checks that the element is instantiated
+        test('instantiating the element works', function() {
+          assert.equal(element.is, 'bah-tabs');
+        });
+
+        //Checks default functionality
+        test('starts on selected step 1', function() {
+          assert.equal(element.selectedStepNumber, 1);
+        });
+
+        //test that next button advances the selected step
+        //test that previous button retreats the selected step
+        test('next/previous button advances/retreats selected step', function() {
+          var nextButton = document.getElementById('nextButton');
+          nextButton.click();
+          assert.equal(element.selectedStepNumber, 2);
+          var previousButton = document.getElementById('previousButton');
+          previousButton.click();
+          assert.equal(element.selectedStepNumber, 1);
+        });
+
+        //tests boundaries
+        //tests that isFirstStep / isLastStep are set on boundaries
+        test('cannot move out of bounds and isFirstStep / isLastStep are updated', function() {
+          var previousButton = document.getElementById('previousButton');
+          previousButton.click();
+          assert.equal(element.selectedStepNumber, 1);
+          assert.equal(element.isFirstStep, true);
+          assert.equal(element.isLastStep, false);   
+
+          var nextButton = document.getElementById('nextButton');
+          nextButton.click();
+          nextButton.click();
+          nextButton.click();
+          assert.equal(element.selectedStepNumber, 3);
+          assert.equal(element.isFirstStep, false);
+          assert.equal(element.isLastStep, true);          
+        });
+
+        //test that clicking numbered tabs advances/retreats the selected step
+        test('numbered tabs advances/retreats selected step', function(done) {
+          flush(function() {
+            var buttonTwo = element.$$('#button-2');
+            buttonTwo.click();
+            assert.equal(element.selectedStepNumber, 2);
+            done();
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

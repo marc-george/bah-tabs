@@ -1,0 +1,16 @@
+{
+  "name": "bah-tabs",
+  "description": "Similar functionality to px-tabs, but with Brilliant Apps Hub styling.",
+  "main": "bah-tabs.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "px-buttons-design": "^1.1.6",
+    "px-spacing-design": "^0.4.4"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
+}
